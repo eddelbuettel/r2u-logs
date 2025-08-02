@@ -15,13 +15,13 @@ create temp table r as select * from read_csv('r*/*.csv.zst');
 ### Count
 
 ```sql
-create temp table r as select * from read_csv('r*/*.csv.zst');
+select count(*) as n from r;
 ```
 
 ### Count by Month
 
 ```sql
-create temp table r as select * from read_csv('r*/*.csv.zst');
+select count(*) as n, strftime(date, '%Y-%m') as ym from r group by ym order by ym;
 ```
 
 ### Sub-Select
